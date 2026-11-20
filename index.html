@@ -1,0 +1,578 @@
+```html
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Inscription | Formation</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #111c19, #263b32, #15251f);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+      }
+
+      /* MAIN CONTAINER */
+
+      .main-block {
+        width: 100%;
+        max-width: 1050px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background: #f9f8f4;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+        animation: appear 0.8s ease;
+      }
+
+      @keyframes appear {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* LEFT PART */
+
+      .left-part {
+        background: linear-gradient(145deg, #263d33, #15251e);
+        color: white;
+        padding: 65px 45px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+      }
+
+      .left-part::before {
+        content: "";
+        position: absolute;
+        width: 250px;
+        height: 250px;
+        border: 1px solid rgba(210, 180, 110, 0.2);
+        border-radius: 50%;
+        top: -100px;
+        right: -100px;
+      }
+
+      .logo {
+        color: #d4b675;
+        font-size: 13px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        margin-bottom: 35px;
+        font-weight: 700;
+      }
+
+      .left-part h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 42px;
+        line-height: 1.3;
+        margin-bottom: 25px;
+      }
+
+      .left-part h1 span {
+        color: #d4b675;
+      }
+
+      .description {
+        color: #c2ccc5;
+        line-height: 1.9;
+        font-size: 14px;
+        margin-bottom: 40px;
+      }
+
+      .features {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+
+      .feature {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        color: #e8e9e3;
+        font-size: 14px;
+      }
+
+      .feature i {
+        color: #d4b675;
+        font-size: 17px;
+      }
+
+      .left-footer {
+        margin-top: 55px;
+        color: #87958b;
+        font-size: 12px;
+        letter-spacing: 1px;
+      }
+
+      /* RIGHT PART */
+
+      form {
+        padding: 55px 50px;
+      }
+
+      .title {
+        margin-bottom: 35px;
+      }
+
+      .title .subtitle {
+        color: #a58b53;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 12px;
+      }
+
+      .title h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 30px;
+        color: #263b32;
+      }
+
+      .title p {
+        color: #888;
+        font-size: 13px;
+        margin-top: 10px;
+      }
+
+      /* INPUT GROUP */
+
+      .input-group {
+        margin-bottom: 25px;
+      }
+
+      .input-group label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: #35443b;
+        margin-bottom: 10px;
+      }
+
+      .input-wrapper {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #d7d7ce;
+        transition: 0.3s;
+      }
+
+      .input-wrapper i {
+        color: #a58b53;
+        margin-right: 12px;
+        font-size: 15px;
+      }
+
+      .input-wrapper input,
+      .input-wrapper select {
+        width: 100%;
+        padding: 13px 5px;
+        border: none;
+        outline: none;
+        background: transparent;
+        font-family: inherit;
+        font-size: 14px;
+        color: #263b32;
+      }
+
+      .input-wrapper:focus-within {
+        border-bottom: 2px solid #a58b53;
+      }
+
+      .input-wrapper input::placeholder {
+        color: #aaa;
+      }
+
+      .input-wrapper select {
+        cursor: pointer;
+      }
+
+      /* BUTTONS */
+
+      .buttons {
+        display: flex;
+        gap: 12px;
+        margin-top: 35px;
+      }
+
+      button {
+        padding: 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: inherit;
+        font-weight: 600;
+        font-size: 13px;
+        transition: 0.3s;
+      }
+
+      .btn-submit {
+        flex: 2;
+        background: #263b32;
+        color: white;
+      }
+
+      .btn-submit:hover {
+        background: #a58b53;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(165, 139, 83, 0.25);
+      }
+
+      .btn-reset {
+        flex: 1;
+        background: #ebe9e1;
+        color: #555;
+      }
+
+      .btn-reset:hover {
+        background: #dedbd0;
+      }
+
+      /* MESSAGE */
+
+      #message {
+        margin-top: 20px;
+        font-size: 13px;
+        text-align: center;
+        line-height: 1.6;
+      }
+
+      .success {
+        color: #267347;
+      }
+
+      .error {
+        color: #bd4646;
+      }
+
+      /* RESPONSIVE */
+
+      @media (max-width: 800px) {
+        .main-block {
+          grid-template-columns: 1fr;
+        }
+
+        .left-part {
+          padding: 45px 35px;
+        }
+
+        .left-part h1 {
+          font-size: 32px;
+        }
+
+        .left-footer {
+          margin-top: 30px;
+        }
+
+        form {
+          padding: 40px 30px;
+        }
+      }
+
+      @media (max-width: 450px) {
+        body {
+          padding: 12px;
+        }
+
+        form {
+          padding: 30px 22px;
+        }
+
+        .buttons {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main-block">
+      <!-- LEFT SECTION -->
+
+      <div class="left-part">
+        <div class="logo">
+          <i class="fas fa-graduation-cap"></i>
+          Academy
+        </div>
+
+        <h1>
+          Investissez dans
+          <span>votre avenir.</span>
+        </h1>
+
+        <p class="description">
+          Découvrez nos formations et développez vos compétences avec des
+          programmes conçus pour vous accompagner vers la réussite
+          professionnelle.
+        </p>
+
+        <div class="features">
+          <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            Formations de qualité
+          </div>
+
+          <div class="feature">
+            <i class="fas fa-user-graduate"></i>
+            Accompagnement personnalisé
+          </div>
+
+          <div class="feature">
+            <i class="fas fa-certificate"></i>
+            Développement des compétences
+          </div>
+        </div>
+
+        <div class="left-footer">© 2026 ACADEMY — ALL RIGHTS RESERVED</div>
+      </div>
+
+      <!-- RIGHT SECTION -->
+
+      <form id="inscriptionForm">
+        <div class="title">
+          <div class="subtitle">Rejoignez-nous</div>
+
+          <h2>Inscription</h2>
+
+          <p>Remplissez les informations ci-dessous.</p>
+        </div>
+
+        <!-- NAME -->
+
+        <div class="input-group">
+          <label>Nom complet</label>
+
+          <div class="input-wrapper">
+            <i class="fas fa-user"></i>
+
+            <input type="text" name="name" placeholder="Votre nom complet" />
+          </div>
+        </div>
+
+        <!-- EMAIL -->
+
+        <div class="input-group">
+          <label>Adresse Email</label>
+
+          <div class="input-wrapper">
+            <i class="fas fa-envelope"></i>
+
+            <input type="email" name="mail" placeholder="exemple@gmail.com" />
+          </div>
+        </div>
+
+        <!-- PHONE -->
+
+        <div class="input-group">
+          <label>Numéro de téléphone</label>
+
+          <div class="input-wrapper">
+            <i class="fas fa-phone"></i>
+
+            <input
+              type="tel"
+              name="tel"
+              placeholder="0612345678"
+              maxlength="10"
+            />
+          </div>
+        </div>
+
+        <!-- COURSE -->
+
+        <div class="input-group">
+          <label>Type de formation</label>
+
+          <div class="input-wrapper">
+            <i class="fas fa-book-open"></i>
+
+            <select name="course">
+              <option value="">Choisissez une formation</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- BUTTONS -->
+
+        <div class="buttons">
+          <button type="submit" class="btn-submit">
+            <i class="fas fa-paper-plane"></i>
+            Envoyer
+          </button>
+
+          <button type="reset" class="btn-reset">Réinitialiser</button>
+        </div>
+
+        <div id="message"></div>
+      </form>
+    </div>
+
+    <script>
+      // 1. DONNEES JSON
+
+      let donneesJSON = {
+        types: [
+          {
+            nom: "Cours courts",
+            prix: 0,
+          },
+
+          {
+            nom: "Cours facturé",
+            prix: 300,
+          },
+        ],
+      };
+
+      // 2. REMPLIR LE SELECT
+
+      function RemplirType(data) {
+        let select = document.querySelector("select");
+
+        data.types.forEach(function (item) {
+          let option = document.createElement("option");
+
+          option.value = item.nom;
+
+          option.textContent = item.nom + " (" + item.prix + " DH)";
+
+          select.appendChild(option);
+        });
+      }
+
+      // Appel de la fonction
+
+      RemplirType(donneesJSON);
+
+      // 3. VALIDATION DES CHAMPS
+
+      function validerChamps() {
+        let nom = document.querySelector("[name='name']").value.trim();
+
+        let email = document.querySelector("[name='mail']").value.trim();
+
+        let tel = document.querySelector("[name='tel']").value.trim();
+
+        let typeCours = document.querySelector("[name='course']").value;
+
+        if (nom === "" || email === "" || tel === "" || typeCours === "") {
+          return "Tous les champs doivent être remplis !";
+        }
+
+        return true;
+      }
+
+      // 4. VERIFICATION TELEPHONE
+
+      function VerifTel() {
+        let tel = document.querySelector("[name='tel']").value.trim();
+
+        let regex = /^[0-9]{10}$/;
+
+        if (!regex.test(tel)) {
+          return "Le numéro doit contenir exactement 10 chiffres.";
+        }
+
+        return true;
+      }
+
+      // 5. VERIFICATION EMAIL
+
+      function VerifEmail() {
+        let email = document.querySelector("[name='mail']").value.trim();
+
+        let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!regex.test(email)) {
+          return "Veuillez saisir une adresse email valide.";
+        }
+
+        return true;
+      }
+
+      // 6. TRAITEMENT DU FORMULAIRE
+
+      document
+        .getElementById("inscriptionForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          let message = document.getElementById("message");
+
+          let champs = validerChamps();
+
+          if (champs !== true) {
+            message.textContent = champs;
+            message.className = "error";
+
+            return;
+          }
+
+          let email = VerifEmail();
+
+          if (email !== true) {
+            message.textContent = email;
+            message.className = "error";
+
+            return;
+          }
+
+          let telephone = VerifTel();
+
+          if (telephone !== true) {
+            message.textContent = telephone;
+            message.className = "error";
+
+            return;
+          }
+
+          message.textContent = "Félicitations ! Votre formulaire est valide.";
+
+          message.className = "success";
+        });
+
+      // 7. VIDER LES CHAMPS
+
+      document
+        .getElementById("inscriptionForm")
+        .addEventListener("reset", function () {
+          document.getElementById("message").textContent = "";
+        });
+    </script>
+  </body>
+</html>
+```
